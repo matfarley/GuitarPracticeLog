@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeLog", "PracticeLog\PracticeLog.csproj", "{E09E8C09-5E0E-46A3-B107-F7A9ACCDBE3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E09E8C09-5E0E-46A3-B107-F7A9ACCDBE3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E09E8C09-5E0E-46A3-B107-F7A9ACCDBE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E09E8C09-5E0E-46A3-B107-F7A9ACCDBE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E09E8C09-5E0E-46A3-B107-F7A9ACCDBE3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

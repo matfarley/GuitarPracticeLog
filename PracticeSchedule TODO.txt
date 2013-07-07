@@ -1,0 +1,4 @@
+﻿- set default values for new rows, so that the are not null
+- Set up countdown timer for each item
+- Make each Schedule an object and then Serialise the object to a .dat file, saving the schedule in a 2d array.
+- decide on how to save?  lock it down by date and save to a set file or let users choose a name and location?
