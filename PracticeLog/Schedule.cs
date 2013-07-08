@@ -5,36 +5,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+
 
 namespace PracticeLog
 {
-    class Schedule  //Serializable?
+    class Schedule : ISerializable
     {
-        String[,] items = null;
+        private String[,] items;
+        DataGridView table;
 
-        public String[,] SetItems(DataGridView table)
+        public Schedule(DataGridView table)
+        {
+            this.table = table;
+            SetItems();
+        }
+
+        public void SetItems()
         {
             int rowcount = table.Rows.Count;
             int colcount = table.Columns.Count;
             items = new String[rowcount, colcount];
 
-
-
             for (int row = 0; row < rowcount; row++)
             {
-
-
                 for (int col = 0; col < colcount; col++)
                 {
                     items[row, col] = table.Rows[row].Cells[col].Value.ToString();
-
-                    //sw.Write(table.Rows[row].Cells[col].Value);
-                    //               
                 }
             }
-                //           
-                return items;
-            }
+        }
+
+        public String[,] GetItems()
+        {
+            return items;
         }
     }
+}
 

@@ -105,21 +105,10 @@ namespace PracticeLog
         //Trying to use serialisation to Save and open
         public void SaveScheduleSerialise()
         {
-            //string teststring1 = "";
 
+            s1 = new Schedule(ApplicationTable);
             
-            s1 = new Schedule();
-            s1.SetItems(ApplicationTable);
 
-            //for (int row = 0; row < ApplicationTable.Rows.Count; row++)
-            //{
-            //    for (int col = 0; col < ApplicationTable.Columns.Count; col++)
-            //    {
-            //        teststring1 += s1.SetItems(ApplicationTable)[row, col] + ", ";
-            //    }
-            //}
-
-            //MessageBox.Show(teststring1);
         }
 
         public void OpenSchedule(String CurrentFile)
