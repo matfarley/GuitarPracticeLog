@@ -110,6 +110,7 @@ namespace PracticeLog
         {
 
             s1 = new Schedule(ApplicationTable);
+<<<<<<< HEAD
             Stream stream = File.Open("Practice1.ps", FileMode.Create);
             BinaryFormatter bformatter = new BinaryFormatter();
 
@@ -143,6 +144,9 @@ namespace PracticeLog
                     ApplicationTable.Rows[row].Cells[col].Value = s1.GetItems()[row, col];
                 }
             }
+=======
+            
+>>>>>>> d47d64267d57730902bf07f96ed0ece0a12cae7e
 
         }
 
