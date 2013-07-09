@@ -41,6 +41,12 @@
             this.opnDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnRemove = new System.Windows.Forms.Button();
             this.tblSchedule = new System.Windows.Forms.DataGridView();
+            this.colPracticeArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPracticeItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTimeMins = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSecs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tblPracticeItems = new System.Windows.Forms.TableLayoutPanel();
             this.txtItem = new System.Windows.Forms.TextBox();
@@ -51,14 +57,9 @@
             this.numSecs = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.colPracticeArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPracticeItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTimeMins = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSecs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPractice = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
+            this.btnDeserialise = new System.Windows.Forms.Button();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblSchedule)).BeginInit();
             this.tblPracticeItems.SuspendLayout();
@@ -153,6 +154,41 @@
             this.tblSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.tblSchedule.Size = new System.Drawing.Size(822, 229);
             this.tblSchedule.TabIndex = 9;
+            // 
+            // colPracticeArea
+            // 
+            this.colPracticeArea.HeaderText = "Practice Area";
+            this.colPracticeArea.Name = "colPracticeArea";
+            this.colPracticeArea.Width = 131;
+            // 
+            // colPracticeItem
+            // 
+            this.colPracticeItem.HeaderText = "Practice Item";
+            this.colPracticeItem.Name = "colPracticeItem";
+            this.colPracticeItem.Width = 273;
+            // 
+            // colTimeMins
+            // 
+            this.colTimeMins.HeaderText = "Mins.";
+            this.colTimeMins.Name = "colTimeMins";
+            this.colTimeMins.Width = 57;
+            // 
+            // colSecs
+            // 
+            this.colSecs.HeaderText = "Secs.";
+            this.colSecs.Name = "colSecs";
+            this.colSecs.Width = 57;
+            // 
+            // colTotalTime
+            // 
+            this.colTotalTime.HeaderText = "Total Time";
+            this.colTotalTime.Name = "colTotalTime";
+            // 
+            // colNotes
+            // 
+            this.colNotes.HeaderText = "Notes:";
+            this.colNotes.Name = "colNotes";
+            this.colNotes.Width = 200;
             // 
             // btnAdd
             // 
@@ -280,41 +316,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Mins.";
             // 
-            // colPracticeArea
-            // 
-            this.colPracticeArea.HeaderText = "Practice Area";
-            this.colPracticeArea.Name = "colPracticeArea";
-            this.colPracticeArea.Width = 131;
-            // 
-            // colPracticeItem
-            // 
-            this.colPracticeItem.HeaderText = "Practice Item";
-            this.colPracticeItem.Name = "colPracticeItem";
-            this.colPracticeItem.Width = 273;
-            // 
-            // colTimeMins
-            // 
-            this.colTimeMins.HeaderText = "Mins.";
-            this.colTimeMins.Name = "colTimeMins";
-            this.colTimeMins.Width = 57;
-            // 
-            // colSecs
-            // 
-            this.colSecs.HeaderText = "Secs.";
-            this.colSecs.Name = "colSecs";
-            this.colSecs.Width = 57;
-            // 
-            // colTotalTime
-            // 
-            this.colTotalTime.HeaderText = "Total Time";
-            this.colTotalTime.Name = "colTotalTime";
-            // 
-            // colNotes
-            // 
-            this.colNotes.HeaderText = "Notes:";
-            this.colNotes.Name = "colNotes";
-            this.colNotes.Width = 200;
-            // 
             // btnPractice
             // 
             this.btnPractice.Location = new System.Drawing.Point(840, 97);
@@ -330,15 +331,26 @@
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 12;
-            this.btnTest.Text = "button1";
+            this.btnTest.Text = "Serialise";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
+            // btnDeserialise
+            // 
+            this.btnDeserialise.Location = new System.Drawing.Point(851, 206);
+            this.btnDeserialise.Name = "btnDeserialise";
+            this.btnDeserialise.Size = new System.Drawing.Size(75, 23);
+            this.btnDeserialise.TabIndex = 13;
+            this.btnDeserialise.Text = "Deserialize";
+            this.btnDeserialise.UseVisualStyleBackColor = true;
+            this.btnDeserialise.Click += new System.EventHandler(this.btnDeserialise_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 449);
+            this.Controls.Add(this.btnDeserialise);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnPractice);
             this.Controls.Add(this.btnRemove);
@@ -394,6 +406,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
         private System.Windows.Forms.Button btnPractice;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btnDeserialise;
     }
 }
 

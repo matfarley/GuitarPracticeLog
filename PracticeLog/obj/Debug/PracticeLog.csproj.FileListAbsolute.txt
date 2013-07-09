@@ -18,3 +18,16 @@ Z:\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog
 Z:\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.frmMain.resources
 Z:\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.Properties.Resources.resources
 Z:\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\bin\Debug\PracticeLog.exe.config
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.exe
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.pdb
+<<<<<<< HEAD
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\bin\Debug\PracticeLogs.sdf
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\bin\Debug\PracticeLog.exe
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\bin\Debug\PracticeLog.pdb
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.frmMain.resources
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.Properties.Resources.resources
+\\vmware-host\Shared Folders\Windows Shared Folder\Web and Software Development\Software\GuitarPracticeLog\PracticeLog\obj\Debug\PracticeLog.csproj.GenerateResource.Cache
+=======
+>>>>>>> d47d64267d57730902bf07f96ed0ece0a12cae7e
