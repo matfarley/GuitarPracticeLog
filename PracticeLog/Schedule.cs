@@ -10,6 +10,7 @@ using System.Runtime.Serialization;
 
 namespace PracticeLog
 {
+    [Serializable()] 
     class Schedule : ISerializable
     {
         private String[,] items;
@@ -19,6 +20,18 @@ namespace PracticeLog
         {
             this.table = table;
             SetItems();
+        }
+
+        //Deserialization constructor
+        public Schedule(SerializationInfo info, StreamingContext ctxt)
+        {
+            items = (String[,])info.GetValue("Items", typeof(String[,]));
+        }
+
+        //Serialisation function
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("Items", items);
         }
 
         public void SetItems()

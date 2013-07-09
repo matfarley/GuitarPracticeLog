@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 
@@ -18,6 +20,7 @@ namespace PracticeLog
         SaveFileDialog savDialog;
         OpenFileDialog opnDialog;
         private Schedule s1;
+       private Stream stream;
 
 
 
@@ -107,7 +110,39 @@ namespace PracticeLog
         {
 
             s1 = new Schedule(ApplicationTable);
-            
+            Stream stream = File.Open("Practice1.ps", FileMode.Create);
+            BinaryFormatter bformatter = new BinaryFormatter();
+
+           //Output message
+            Console.WriteLine("Writing practice schedule");
+            bformatter.Serialize(stream, s1);
+            stream.Close();
+            s1 = null;
+
+        }
+
+        // Attempting to load a serialised object
+        public void OpenScheduleSerialise()
+        {
+
+            stream = File.Open("Practice1.ps", FileMode.Open);
+            BinaryFormatter bformatter = new BinaryFormatter();
+           
+            s1 = (Schedule)bformatter.Deserialize(stream);
+            stream.Close();
+
+            int rowcount = s1.GetItems().GetLength(0);
+            int colcount = s1.GetItems().GetLength(1);
+
+            ApplicationTable.Rows.Add(rowcount);
+
+            for (int row = 0; row < rowcount; row++)
+            {
+                for (int col = 0; col < colcount; col++)
+                {
+                    ApplicationTable.Rows[row].Cells[col].Value = s1.GetItems()[row, col];
+                }
+            }
 
         }
 

@@ -121,6 +121,11 @@ namespace PracticeLog
         {
             ScheduleModel.SaveScheduleSerialise();
         }
+
+        private void btnDeserialise_Click(object sender, EventArgs e)
+        {
+            ScheduleModel.OpenScheduleSerialise();
+        }
         }
     }
 
