@@ -10,10 +10,9 @@ using System.Runtime.Serialization;
 
 namespace PracticeLog
 {
-<<<<<<< HEAD
+
     [Serializable()] 
-=======
->>>>>>> d47d64267d57730902bf07f96ed0ece0a12cae7e
+
     class Schedule : ISerializable
     {
         private String[,] items;
@@ -24,7 +23,7 @@ namespace PracticeLog
             this.table = table;
             SetItems();
         }
-<<<<<<< HEAD
+
 
         //Deserialization constructor
         public Schedule(SerializationInfo info, StreamingContext ctxt)
@@ -37,21 +36,26 @@ namespace PracticeLog
         {
             info.AddValue("Items", items);
         }
-=======
->>>>>>> d47d64267d57730902bf07f96ed0ece0a12cae7e
+
 
         public void SetItems()
         {
             int rowcount = table.Rows.Count;
             int colcount = table.Columns.Count;
             items = new String[rowcount, colcount];
-
-            for (int row = 0; row < rowcount; row++)
+            try
             {
-                for (int col = 0; col < colcount; col++)
+                for (int row = 0; row < rowcount; row++)
                 {
-                    items[row, col] = table.Rows[row].Cells[col].Value.ToString();
+                    for (int col = 0; col < colcount; col++)
+                    {
+                        items[row, col] = table.Rows[row].Cells[col].Value.ToString();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

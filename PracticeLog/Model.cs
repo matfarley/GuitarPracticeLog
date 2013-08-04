@@ -14,13 +14,11 @@ namespace PracticeLog
 {
     class Model
     {
-        private StreamWriter sw;
-        private TextReader tr;
         private DataGridView ApplicationTable;
         SaveFileDialog savDialog;
         OpenFileDialog opnDialog;
         private Schedule s1;
-       private Stream stream;
+        private Stream stream;
 
 
 
@@ -49,14 +47,14 @@ namespace PracticeLog
                     case DialogResult.Yes:
                         if (CurrentFile != "")
                         {
-                            saveSchedule(CurrentFile);
+                            SaveScheduleSerialise(CurrentFile);
                             ApplicationTable.Rows.Clear();
                         }
                         else
                         {
-                            savDialog.Filter = "CSV Files (*.csv)|*.csv";
+                            savDialog.Filter = "Practice Schedule Files (*.ps)|*.ps";
                             savDialog.ShowDialog();
-                            saveSchedule(savDialog.FileName);
+                            SaveScheduleSerialise(savDialog.FileName);
                         }
                         break;
                     case DialogResult.No:
@@ -67,114 +65,72 @@ namespace PracticeLog
 
         }
 
-        public void saveSchedule(String path)
+       
+
+        //Trying to use serialisation to Save and open - at the moment it is Giving a null reference exception and I am not sure why
+        public void SaveScheduleSerialise(String CurrentFile)
         {
-            if (path != "")
+            Console.WriteLine("Line 110"); // used for debugging
+            if (CurrentFile != "" && CurrentFile != null)
             {
+                Console.WriteLine("Line 113"); // used for debugging
+                s1 = new Schedule(ApplicationTable);
+                Console.WriteLine("Line 115"); // used for debugging
                 try
                 {
-
-                    sw = new StreamWriter(path, false);
-
-
-
-                    int count = ApplicationTable.Rows.Count;
-                    int colcount = ApplicationTable.Columns.Count;
-
-                    for (int row = 0; row < count; row++)
-                    {
-
-
-                        for (int col = 0; col < colcount; col++)
-                        {
-                            sw.Write(ApplicationTable.Rows[row].Cells[col].Value + ",");
-                            ;
-                        }
-                        sw.Write("\r\n");
-
-                    }
-                    sw.Close();
-                    sw.Dispose();
-
-
+                    Stream stream = File.Open(CurrentFile, FileMode.Create);
+                    BinaryFormatter bformatter = new BinaryFormatter();
+                    Console.WriteLine("Line 120"); // used for debugging
+                    //Output message
+                    Console.WriteLine("Writing practice schedule");
+                    bformatter.Serialize(stream, s1);
+                    stream.Close();
+                    Console.WriteLine("Line 125"); // used for debugging
+                    s1 = null;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show( ex.ToString());
                 }
             }
-        }
-
-        //Trying to use serialisation to Save and open
-        public void SaveScheduleSerialise()
-        {
-
-            s1 = new Schedule(ApplicationTable);
-<<<<<<< HEAD
-            Stream stream = File.Open("Practice1.ps", FileMode.Create);
-            BinaryFormatter bformatter = new BinaryFormatter();
-
-           //Output message
-            Console.WriteLine("Writing practice schedule");
-            bformatter.Serialize(stream, s1);
-            stream.Close();
-            s1 = null;
 
         }
 
         // Attempting to load a serialised object
-        public void OpenScheduleSerialise()
+        public void OpenScheduleSerialise(String CurrentFile)
         {
-
-            stream = File.Open("Practice1.ps", FileMode.Open);
-            BinaryFormatter bformatter = new BinaryFormatter();
-           
-            s1 = (Schedule)bformatter.Deserialize(stream);
-            stream.Close();
-
-            int rowcount = s1.GetItems().GetLength(0);
-            int colcount = s1.GetItems().GetLength(1);
-
-            ApplicationTable.Rows.Add(rowcount);
-
-            for (int row = 0; row < rowcount; row++)
-            {
-                for (int col = 0; col < colcount; col++)
-                {
-                    ApplicationTable.Rows[row].Cells[col].Value = s1.GetItems()[row, col];
-                }
-            }
-=======
-            
->>>>>>> d47d64267d57730902bf07f96ed0ece0a12cae7e
-
-        }
-
-        public void OpenSchedule(String CurrentFile)
-        {
-            ApplicationTable.Rows.Clear();
-
             if (CurrentFile != "" && CurrentFile != null)
             {
-                tr = File.OpenText(CurrentFile);
-
                 try
                 {
+                    stream = File.Open(CurrentFile, FileMode.Open);
+                    BinaryFormatter bformatter = new BinaryFormatter();
 
-                    while (tr.Peek() != null)
+                    s1 = (Schedule)bformatter.Deserialize(stream);
+                    stream.Close();
+
+                    int rowcount = s1.GetItems().GetLength(0);
+                    int colcount = s1.GetItems().GetLength(1);
+
+                    ApplicationTable.Rows.Add(rowcount);
+
+                    for (int row = 0; row < rowcount; row++)
                     {
-
-                        ApplicationTable.Rows.Add(tr.ReadLine().Split(new char[] { ',' }));
+                        for (int col = 0; col < colcount; col++)
+                        {
+                            ApplicationTable.Rows[row].Cells[col].Value = s1.GetItems()[row, col];
+                        }
                     }
-                    tr.Close();
-                    tr.Dispose();
-
                 }
                 catch (Exception ex)
                 {
+                    MessageBox.Show(ex.ToString());
                 }
             }
+
         }
+
+       
     }
 
 

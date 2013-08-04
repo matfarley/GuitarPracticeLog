@@ -1,4 +1,7 @@
-﻿- set default values for new rows, so that the are not null
-- Set up countdown timer for each item
-- Make each Schedule an object and then Serialise the object to a .dat file, saving the schedule in a 2d array.
-- decide on how to save?  lock it down by date and save to a set file or let users choose a name and location?
+- Fix the save method in the model class - it throws a null pointer exception around line 114
+
+- schedule still is not saving the contents of the very last cell i.e notes
+- add an actual time practiced column to table,
+
+- add a total time practiced variable to the practice schedule class use properties to 	  set/get.  Display this in a non editable txt box and keep updating after a practice is complete.
+- add a timer with a start,  stop and reset functions - how will these interact with the total time variable?

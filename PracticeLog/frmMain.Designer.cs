@@ -57,9 +57,6 @@
             this.numSecs = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnPractice = new System.Windows.Forms.Button();
-            this.btnTest = new System.Windows.Forms.Button();
-            this.btnDeserialise = new System.Windows.Forms.Button();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblSchedule)).BeginInit();
             this.tblPracticeItems.SuspendLayout();
@@ -73,7 +70,7 @@
             this.mnuFile});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(946, 24);
+            this.mnuMain.Size = new System.Drawing.Size(845, 24);
             this.mnuMain.TabIndex = 0;
             this.mnuMain.Text = "mnuMain";
             // 
@@ -316,43 +313,11 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Mins.";
             // 
-            // btnPractice
-            // 
-            this.btnPractice.Location = new System.Drawing.Point(840, 97);
-            this.btnPractice.Name = "btnPractice";
-            this.btnPractice.Size = new System.Drawing.Size(94, 23);
-            this.btnPractice.TabIndex = 11;
-            this.btnPractice.Text = "&Practice Item";
-            this.btnPractice.UseVisualStyleBackColor = true;
-            // 
-            // btnTest
-            // 
-            this.btnTest.Location = new System.Drawing.Point(851, 159);
-            this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(75, 23);
-            this.btnTest.TabIndex = 12;
-            this.btnTest.Text = "Serialise";
-            this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
-            // 
-            // btnDeserialise
-            // 
-            this.btnDeserialise.Location = new System.Drawing.Point(851, 206);
-            this.btnDeserialise.Name = "btnDeserialise";
-            this.btnDeserialise.Size = new System.Drawing.Size(75, 23);
-            this.btnDeserialise.TabIndex = 13;
-            this.btnDeserialise.Text = "Deserialize";
-            this.btnDeserialise.UseVisualStyleBackColor = true;
-            this.btnDeserialise.Click += new System.EventHandler(this.btnDeserialise_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 449);
-            this.Controls.Add(this.btnDeserialise);
-            this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.btnPractice);
+            this.ClientSize = new System.Drawing.Size(845, 449);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.tblSchedule);
             this.Controls.Add(this.btnAdd);
@@ -404,9 +369,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSecs;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotalTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNotes;
-        private System.Windows.Forms.Button btnPractice;
-        private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.Button btnDeserialise;
     }
 }
 

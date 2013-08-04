@@ -39,18 +39,20 @@ namespace PracticeLog
 
         private void mnuSaveAs_Click(object sender, EventArgs e)
         {
-            savDialog.Filter = "CSV Files (*.csv)|*.csv";
+            //The file extension for practice schedules is .ps
+            savDialog.Filter = "Practice Schedule Files (*.ps)|*.ps";
             savDialog.ShowDialog();
           
             CurrentFile = savDialog.FileName;
-            ScheduleModel.saveSchedule(CurrentFile);
+            
+            ScheduleModel.SaveScheduleSerialise(CurrentFile);
 
         }
 
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //Check to see a selection has been made, otherwise send back an message
+            //Need to add a check to see a selection has been made, otherwise send back an message
             
             CopyItemToTable();
 
@@ -99,33 +101,23 @@ namespace PracticeLog
             }
         }
 
-     
-
         private void mnuSave_Click(object sender, EventArgs e)
         {
-            ScheduleModel.saveSchedule(CurrentFile);
+           
+            ScheduleModel.SaveScheduleSerialise(CurrentFile);
         }
 
         private void mnuOpen_Click(object sender, EventArgs e)
         {
             
-            opnDialog.Filter = "CSV Files (*.csv)|*.csv";
+            opnDialog.Filter = "Practice Schedule Files (*.ps)|*.ps";
             opnDialog.ShowDialog();
             CurrentFile = opnDialog.FileName;
-            ScheduleModel.OpenSchedule(CurrentFile);
+            
+            ScheduleModel.OpenScheduleSerialise(CurrentFile);
 
-          
             }
 
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            ScheduleModel.SaveScheduleSerialise();
-        }
-
-        private void btnDeserialise_Click(object sender, EventArgs e)
-        {
-            ScheduleModel.OpenScheduleSerialise();
-        }
         }
     }
 
