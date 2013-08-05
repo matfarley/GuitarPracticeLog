@@ -1,4 +1,4 @@
-- Fix the save method in the model class - it throws a null pointer exception around line 114
+- Fix the save method in the model class - it throws a null pointer exception in the schedule class and the seItems method line 52
 
 - schedule still is not saving the contents of the very last cell i.e notes
 - add an actual time practiced column to table,

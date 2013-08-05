@@ -151,6 +151,7 @@
             this.tblSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.tblSchedule.Size = new System.Drawing.Size(822, 229);
             this.tblSchedule.TabIndex = 9;
+            this.tblSchedule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblSchedule_CellContentClick);
             // 
             // colPracticeArea
             // 

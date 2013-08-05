@@ -70,22 +70,17 @@ namespace PracticeLog
         //Trying to use serialisation to Save and open - at the moment it is Giving a null reference exception and I am not sure why
         public void SaveScheduleSerialise(String CurrentFile)
         {
-            Console.WriteLine("Line 110"); // used for debugging
             if (CurrentFile != "" && CurrentFile != null)
             {
-                Console.WriteLine("Line 113"); // used for debugging
                 s1 = new Schedule(ApplicationTable);
-                Console.WriteLine("Line 115"); // used for debugging
                 try
                 {
                     Stream stream = File.Open(CurrentFile, FileMode.Create);
                     BinaryFormatter bformatter = new BinaryFormatter();
-                    Console.WriteLine("Line 120"); // used for debugging
-                    //Output message
-                    Console.WriteLine("Writing practice schedule");
+               
+                    Console.WriteLine("Writing practice schedule"); // Output message used for debugging
                     bformatter.Serialize(stream, s1);
                     stream.Close();
-                    Console.WriteLine("Line 125"); // used for debugging
                     s1 = null;
                 }
                 catch (Exception ex)

@@ -118,6 +118,13 @@ namespace PracticeLog
 
             }
 
+        private void tblSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+       
+
         }
     }
 

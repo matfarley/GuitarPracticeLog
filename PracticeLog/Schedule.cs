@@ -16,7 +16,7 @@ namespace PracticeLog
     class Schedule : ISerializable
     {
         private String[,] items;
-        DataGridView table;
+        DataGridView table = null;
 
         public Schedule(DataGridView table)
         {
@@ -40,9 +40,12 @@ namespace PracticeLog
 
         public void SetItems()
         {
+            //Uses nested for loops to save contents of the datagridview to a 2D array.  This will be serialised.
+            //Seems to be a problem with adding  the final cell - it throws a null pointer reference.
             int rowcount = table.Rows.Count;
             int colcount = table.Columns.Count;
             items = new String[rowcount, colcount];
+            Console.WriteLine();
             try
             {
                 for (int row = 0; row < rowcount; row++)
@@ -55,7 +58,7 @@ namespace PracticeLog
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("problems start here: Line 47 \r\n" + ex.Message);
             }
         }
 
